@@ -1,73 +1,171 @@
-# React + TypeScript + Vite
+# 💱 Currency & Crypto Tracker
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+> A real-time currency converter and cryptocurrency tracker with live price charts, dark mode, and a favorites system — built with React, TypeScript, and public financial APIs.
 
-Currently, two official plugins are available:
+![React](https://img.shields.io/badge/React-18-61DAFB?style=flat&logo=react)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.0-3178C6?style=flat&logo=typescript)
+![Vite](https://img.shields.io/badge/Vite-5.0-646CFF?style=flat&logo=vite)
+![Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-000000?style=flat&logo=vercel)
+![License](https://img.shields.io/badge/License-MIT-green?style=flat)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## 🔗 Live Demo
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+**[View Live App →](https://your-vercel-link.vercel.app)**
 
-## Expanding the ESLint configuration
+> *(Update this link after deploying to Vercel)*
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 📸 Screenshots
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+| Currency Converter | Crypto Tracker | Dark Mode |
+|---|---|---|
+| *(add screenshot)* | *(add screenshot)* | *(add screenshot)* |
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+---
+
+## ✨ Features
+
+- 🌍 **Real-time currency conversion** across 160+ global currencies
+- 📈 **Live cryptocurrency prices** with 24h change indicators (top 10 by market cap)
+- 📊 **7-day price trend charts** for any selected cryptocurrency
+- 🌙 **Dark / Light mode** toggle with persistent preference
+- ⭐ **Favorites system** — save your most-used currencies and coins
+- 🔍 **Search & filter** across currencies and cryptocurrencies
+- 📱 **Fully responsive** — works on desktop and mobile
+
+---
+
+## 🛠️ Tech Stack
+
+| Layer | Technology |
+|---|---|
+| **Framework** | React 18 + TypeScript |
+| **Build Tool** | Vite |
+| **Charts** | Recharts |
+| **Styling** | Tailwind CSS |
+| **Currency API** | ExchangeRate-API (free tier) |
+| **Crypto API** | CoinGecko API (free, no key needed) |
+| **Deployment** | Vercel |
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Node.js v18+
+- npm or yarn
+- A free API key from [ExchangeRate-API](https://www.exchangerate-api.com/)
+
+### Installation
+
+```bash
+# 1. Clone the repository
+git clone https://github.com/YOUR_USERNAME/currency-crypto-tracker.git
+
+# 2. Navigate into the project
+cd currency-crypto-tracker
+
+# 3. Install dependencies
+npm install
+
+# 4. Set up environment variables
+cp .env.example .env
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### Environment Variables
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Create a `.env` file in the root directory:
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```env
+VITE_EXCHANGE_RATE_API_KEY=your_api_key_here
 ```
+
+> **Note:** CoinGecko does not require an API key for the free tier.
+
+### Running Locally
+
+```bash
+npm run dev
+```
+
+Open [http://localhost:5173](http://localhost:5173) in your browser.
+
+---
+
+## 📁 Project Structure
+
+```
+currency-crypto-tracker/
+├── public/
+├── src/
+│   ├── components/
+│   │   ├── CurrencyConverter.tsx   # Live currency conversion UI
+│   │   ├── CryptoCard.tsx          # Individual crypto price card
+│   │   ├── PriceChart.tsx          # 7-day line chart component
+│   │   └── Navbar.tsx              # Navigation + dark mode toggle
+│   ├── hooks/
+│   │   ├── useCurrencyRates.ts     # Fetches exchange rate data
+│   │   └── useCryptoData.ts        # Fetches CoinGecko data
+│   ├── pages/
+│   │   ├── Home.tsx                # Landing dashboard
+│   │   ├── Converter.tsx           # Currency converter page
+│   │   └── Crypto.tsx              # Crypto tracker page
+│   ├── services/
+│   │   ├── currencyApi.ts          # ExchangeRate-API calls
+│   │   └── cryptoApi.ts            # CoinGecko API calls
+│   ├── types/
+│   │   └── index.ts                # Shared TypeScript interfaces
+│   ├── App.tsx
+│   └── main.tsx
+├── .env.example
+├── .gitignore
+└── README.md
+```
+
+---
+
+## 🗺️ Roadmap
+
+- [x] Currency converter with live rates
+- [x] Crypto price tracker (top 10)
+- [x] 7-day price chart
+- [x] Dark / light mode
+- [x] Favorites system
+- [ ] Price alerts via email notification
+- [ ] Portfolio tracker (track your holdings)
+- [ ] Historical exchange rate comparison
+- [ ] PWA support (installable on mobile)
+
+---
+
+## 🤝 Contributing
+
+Contributions, issues, and feature requests are welcome!
+
+1. Fork the repository
+2. Create a new branch (`git checkout -b feature/your-feature`)
+3. Commit your changes (`git commit -m 'feat: add your feature'`)
+4. Push to the branch (`git push origin feature/your-feature`)
+5. Open a Pull Request
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License — see the [LICENSE](LICENSE) file for details.
+
+---
+
+## 👤 Author
+
+**Your Name**
+- GitHub: [@Issac-Abraham](https://github.com/Issac-Abraham)
+- LinkedIn: [Issac Abraham](https://www.linkedin.com/in/issac-abraham-cs/)
+
+---
+
+> ⭐ If you found this project useful, consider giving it a star on GitHub!
