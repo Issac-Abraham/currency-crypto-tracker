@@ -6,6 +6,7 @@
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.0-3178C6?style=flat&logo=typescript)
 ![Vite](https://img.shields.io/badge/Vite-5.0-646CFF?style=flat&logo=vite)
 ![Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-000000?style=flat&logo=vercel)
+![CI](https://github.com/Issac-Abraham/currency-crypto-tracker/actions/workflows/ci.yml/badge.svg)
 ![License](https://img.shields.io/badge/License-MIT-green?style=flat)
 
 ---
@@ -96,6 +97,14 @@ Open [http://localhost:5173](http://localhost:5173) in your browser.
 
 ---
 
+### API Troubleshooting
+
+- If currency data does not load, confirm `VITE_EXCHANGE_RATE_API_KEY` is set in `.env`.
+- After changing `.env`, restart the dev server.
+- Use the in-app **Retry** buttons on Converter and Crypto pages for transient API failures.
+
+---
+
 ## 📁 Project Structure
 
 ```
@@ -125,6 +134,40 @@ currency-crypto-tracker/
 ├── .gitignore
 └── README.md
 ```
+
+---
+
+## ✅ QA Checklist
+
+Before shipping, verify the following:
+
+- [ ] Home page loads and navigation links work on desktop and mobile.
+- [ ] Dark mode toggles correctly and remains persisted after refresh.
+- [ ] Currency conversion updates in real time when amount/base/target changes.
+- [ ] Favorites for currencies and cryptos persist after refresh (localStorage).
+- [ ] Crypto card expansion loads 7-day chart and retry buttons recover from failures.
+- [ ] Live badges update timestamps every 60 seconds without full page reload.
+- [ ] CI workflow passes (`test:run` and `build`) on latest commit.
+
+---
+
+## ⚠️ Known Limitations
+
+- CoinGecko and ExchangeRate APIs can throttle or delay responses on free tiers.
+- Minute-level data changes may look subtle due to compact currency formatting.
+- Auto-refresh updates top-level data every 60 seconds; chart updates when requested/expanded.
+- This app currently focuses on tracking and conversion, not portfolio persistence on backend.
+
+---
+
+## 🚢 Deployment Checklist
+
+- [ ] Push latest code to GitHub.
+- [ ] Configure `VITE_EXCHANGE_RATE_API_KEY` in deployment environment variables.
+- [ ] Confirm CI passes on `main`.
+- [ ] Deploy to Vercel/Netlify and validate app routes.
+- [ ] Replace the placeholder live demo URL in this README.
+- [ ] Add production screenshots under the screenshots section.
 
 ---
 
