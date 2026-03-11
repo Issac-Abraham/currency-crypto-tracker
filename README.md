@@ -163,8 +163,8 @@ This project is licensed under the MIT License — see the [LICENSE](LICENSE) fi
 ## 👤 Author
 
 **Your Name**
-- GitHub: [@YOUR_USERNAME](https://github.com/Issac-Abraham)
-- LinkedIn: [your-linkedin](https://linkedin.com/in/your-linkedin)
+- GitHub: [@Issac-Abraham](https://github.com/Issac-Abraham)
+- LinkedIn: [Issac Abraham](https://www.linkedin.com/in/issac-abraham-cs/)
 
 ---
 
